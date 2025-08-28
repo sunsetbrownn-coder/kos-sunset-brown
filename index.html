@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KOS SUNSET BROWN</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: #fafafa;
+      color: #333;
+      font-size: 16px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #DAA520, #FFD700);
+      color: white;
+      text-align: center;
+      padding: 1.5em 1em;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8em;
+    }
+
+    nav {
+      margin-top: 0.7em;
+    }
+
+    nav a {
+      display: inline-block;
+      color: white;
+      margin: 0 1em;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05em;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #333;
+      background: #fff;
+      padding: 0.3em 0.6em;
+      border-radius: 6px;
+    }
+
+    .hero {
+      background: #fff8dc;
+      text-align: center;
+      padding: 3em 1.5em;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .hero h2 {
+      font-size: 1.7em;
+      color: #b8860b;
+      margin-bottom: 0.5em;
+    }
+
+    section {
+      padding: 2.5em 1.5em;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #b8860b;
+      border-bottom: 3px solid #FFD700;
+      display: inline-block;
+      padding-bottom: 0.3em;
+      margin-bottom: 1.2em;
+      font-size: 1.5em;
+    }
+
+    /* CARD KAMAR */
+    .kamar-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5em;
+      justify-content: center;
+    }
+
+    .kamar-item {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 1.5em;
+      flex: 1;
+      min-width: 280px;
+      max-width: 300px;
+      text-align: center;
+      transition: 0.3s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .kamar-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    .galeri-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      margin-top: 1.2em;
+      justify-content: center;
+    }
+
+    .galeri-grid img {
+      width: 100%;
+      max-width: 280px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      transition: 0.3s;
+    }
+
+    .galeri-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    }
+
+    ul {
+      padding-left: 1.5em;
+      line-height: 1.8;
+    }
+
+    /* FORM */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      margin-top: 1.2em;
+      background: #fff;
+      padding: 1.5em;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    input, select, textarea {
+      padding: 0.8em;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      max-width: 100%;
+      width: 100%;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #DAA520;
+      box-shadow: 0 0 6px rgba(218,165,32,0.4);
+      outline: none;
+    }
+
+    button {
+      width: fit-content;
+      padding: 0.9em 1.7em;
+      background-color: #DAA520;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #b8860b;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: #DAA520;
+      color: white;
+      text-align: center;
+      padding: 1.2em;
+      margin-top: 3em;
+    }
+
+    .wa-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 14px 18px;
+      border-radius: 50%;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      z-index: 1000;
+      font-size: 20px;
+      transition: 0.3s;
+    }
+
+    .wa-float:hover {
+      background-color: #128C7E;
+      transform: scale(1.1);
+    }
+
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      display: none;
+      background-color: #DAA520;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 12px 16px;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 999;
+      transition: 0.3s;
+    }
+
+    #scrollTopBtn:hover {
+      background-color: #b8860b;
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .kamar-list {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav a {
+        margin: 0.4em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h2, .hero h2 {
+        font-size: 1.2em;
+      }
+      body {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>KOS SUNSET BROWN</h1>
+    <nav>
+      <a href="#kamar">Kamar</a>
+      <a href="#fasilitas">Fasilitas</a>
+      <a href="#pesan">Pesan</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Tempat Nyaman untuk Istirahat Anda</h2>
+    <p>Kos bersih dan strategis di pusat kota, cocok untuk mahasiswa dan pekerja.</p>
+  </section>
+
+  <section id="kamar">
+    <h2>Jenis Kamar</h2>
+    <div class="kamar-list">
+      <div class="kamar-item">
+        <h3>Kamar Tulip</h3>
+        <p>Dilengkapi kasur tingkat, lemari, meja belajar, dan kamar mandi dalam. Pilihan ekonomis dan nyaman.</p>
+      </div>
+      <div class="kamar-item">
+        <h3>Kamar Sakura</h3>
+        <p>Fasilitas lengkap dengan AC dan kamar mandi dalam. Ideal untuk kenyamanan maksimal.</p>
+      </div>
+      <div class="kamar-item">
+        <h3>Kamar Jasmine</h3>
+        <p>Kamar luas, ber-AC, kamar mandi dalam, meja belajar, lemari. Cocok untuk 2 orang.</p>
+      </div>
+    </div>
+
+    <div class="galeri">
+      <h3 style="text-align:center; margin-top:2em;">Galeri Kamar</h3>
+      <div class="galeri-grid">
+        <img src="https://via.placeholder.com/280x180?text=Kamar+Tulip" alt="Kamar Tulip" />
+        <img src="https://via.placeholder.com/280x180?text=Kamar+Sakura" alt="Kamar Sakura" />
+        <img src="https://via.placeholder.com/280x180?text=Kamar+Jasmine" alt="Kamar Jasmine" />
+      </div>
+    </div>
+  </section>
+
+  <section id="fasilitas">
+    <h2>Fasilitas Umum</h2>
+    <ul>
+      <li>Wi-Fi</li>
+      <li>Rooftop Bersama</li>
+      <li>Dapur Bersama</li>
+      <li>Parkir Motor</li>
+      <li>Ruang Cuci</li>
+      <li>CCTV & Keamanan 24 Jam</li>
+    </ul>
+  </section>
+
+  <section id="pesan">
+    <h2>Pesan Sekarang</h2>
+    <form id="orderForm">
+      <label for="nama">Nama Lengkap:</label>
+      <input type="text" id="nama" name="nama" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="hp">No HP:</label>
+      <input type="text" id="hp" name="hp" required />
+
+      <label for="tipe">Pilih Tipe Kamar:</label>
+      <select id="tipe" name="tipe" required>
+        <option value="">-- Pilih --</option>
+        <option value="Tulip">Kamar Tulip</option>
+        <option value="Sakura">Kamar Sakura</option>
+        <option value="Jasmine">Kamar Jasmine</option>
+      </select>
+
+      <label for="pesan">Catatan Tambahan:</label>
+      <textarea id="pesan" name="pesan" rows="4"></textarea>
+
+      <button type="submit">Kirim</button>
+    </form>
+  </section>
+
+  <section id="kontak">
+  <h2>Hubungi Kami</h2>
+  <p>📍 Alamat: Jl. Bilal Ujung. Gg. Narodo Medan Timur </p>
+  <p>📱 WhatsApp: <a href="https://wa.me/6288270945151" target="_blank">0882-7094-5151</a></p>
+  <p>✉️ Email: <a href="mailto:sunsetbrownn@email.com">sunsetbrownn@email.com</a></p>
+
+  <!-- Google Maps Embed -->
+  <div style="margin-top:1em;">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.056059047281!2d98.70405677456384!3d3.604522596376983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131c11aaaaaab%3A0xaaaaaaa!2sJl.%20Bilal%20Ujung%2C%20Medan%20Timur!5e0!3m2!1sid!2sid!4v1696437812345!5m2!1sid!2sid" 
+      width="100%" 
+      height="300" 
+      style="border:0; border-radius:10px;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+
+  <footer>
+    <p>&copy; 2025 Kos Sunset Brown. All rights reserved.</p>
+  </footer>
+
+  <!-- Tombol WhatsApp -->
+  <a href="https://wa.me/6288270945151" class="wa-float" target="_blank" title="Chat di WhatsApp">💬</a>
+
+  <!-- Tombol Scroll Top -->
+  <button onclick="scrollToTop()" id="scrollTopBtn" title="Kembali ke Atas">↑</button>
+
+  <script>
+    document.getElementById("orderForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const nama = document.getElementById("nama").value;
+      const email = document.getElementById("email").value;
+      const hp = document.getElementById("hp").value;
+      const tipe = document.getElementById("tipe").value;
+      const catatan = document.getElementById("pesan").value;
+
+      const pesanWA = `Halo, saya ingin memesan kamar di Kos Sunset Brown.%0A
+Nama: ${nama}%0A
+Email: ${email}%0A
+No HP: ${hp}%0A
+Tipe Kamar: ${tipe}%0A
+Catatan: ${catatan}`;
+
+      window.open(`https://wa.me/6288270945151?text=${pesanWA}`, "_blank");
+    });
+
+    // tombol scroll
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function () {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    };
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
